@@ -7,7 +7,19 @@
 a{color:#f6d383;text-underline-offset:4px}nav,.toolbar,.card,.heading{display:flex;align-items:center;gap:14px}nav,.toolbar{justify-content:space-between;flex-wrap:wrap}.toolbar{margin:16px 0}.heading{justify-content:space-between;align-items:baseline;flex-wrap:wrap}h1{font-size:clamp(40px,7vw,68px);line-height:1;margin:27px 0 12px;color:#ffdf8c;text-shadow:2px 2px #34251b}h2{font-size:32px;margin:12px 0}p{margin:8px 0}.status,small{color:#c1cfc3}button{background:#3b3327;color:#ffe4a1;border:1px solid #9b8257;font:inherit;cursor:pointer;padding:7px 14px;border-radius:3px}a:focus-visible,button:focus-visible{outline:3px solid #fff}
 .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,275px),1fr));gap:10px}.card,.notice{background:#1e2d26;border:1px solid #57634a;border-radius:4px;padding:13px}.card{text-decoration:none;color:inherit}.card:hover{border-color:#edca76;background:#29392e}.card strong{font-size:26px;color:#ffe1a3}.card small,.card span.note{display:block;margin-top:4px}.note,.near{color:#f6cc77}.mini{flex:none;display:grid;grid-template-columns:repeat(3,16px);gap:2px}.mini i{height:16px;display:grid;place-items:center;font:12px/1 system-ui;font-style:normal}.cell{background:#39423a;border:1px solid #778075}.part{background:#76501e;color:#ffe3a0}.done{background:#236247;color:#fff}.win{outline:2px solid #f5ca63;outline-offset:-2px}
 .board{display:grid;grid-template-columns:199fr 183fr 198fr;grid-template-rows:195fr 171fr 214fr;aspect-ratio:1;width:min(100%,620px);margin:18px 0}.tile{position:relative;min-width:0;min-height:0}.tile img{width:100%;height:100%;display:block}.tile.win{z-index:1;box-shadow:inset 0 0 0 4px #f5ca63}.tile.win:after{content:'';position:absolute;inset:0;border:3px solid #f5ca63;pointer-events:none}.count{position:absolute;right:7%;bottom:8%;border:1px solid #cfbc8a;padding:1px 6px;border-radius:3px;font-weight:bold;box-shadow:1px 2px 3px #000}.legend{color:#c1cfc3;font-size:20px}.notice{margin:12px 0}.notice ul{margin:6px 0;padding-left:24px}
-</style></head><body><main><nav><a href="index.html">← Event board</a><a href="progress.html">Clan overview</a></nav><h1 id="title">Clan progress</h1><div class="toolbar"><span class="status" id="status" role="status">Reading the published tracker…</span><button id="refresh" type="button">Refresh</button></div><section id="content"></section></main>
+
+.event-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3px;
+  width:calc(100% - 24px); max-width:680px; margin:8px auto 16px;
+  font:700 22px/1 RuneScape,sans-serif; text-align:center; }
+.event-tabs a { display:flex; align-items:center; justify-content:center;
+  min-width:0; min-height:44px; padding:6px 4px; text-decoration:none;
+  color:#eadbb5; background:#30291f; border:1px solid #726148; border-bottom:3px solid #726148; }
+.event-tabs a[aria-current="page"] { color:#ffdf83; background:#453a25; border-bottom-color:#ffcf60; }
+.event-tabs a:hover { background:#50412c; }
+.event-tabs a:focus-visible { outline:2px solid #fff2cc; outline-offset:1px; }
+.event-tabs sup { font-size:.65em; vertical-align:super; line-height:0; }
+@media(max-width:560px){ .event-tabs { font-size:18px; } }
+</style></head><body><main><nav class="event-tabs" aria-label="Coxmas event"><a href="index.html"><span>Bingo Board/Rules</span></a><a href="progress.html" aria-current="page"><span>Bingo Leaderboard</span></a><a href="calendar.html"><span>Advent<sup>(ure)</sup> Calendar</span></a></nav><h1 id="title">Clan progress</h1><div class="toolbar"><span class="status" id="status" role="status">Reading the published tracker…</span><button id="refresh" type="button">Refresh</button></div><section id="content"></section></main>
 <script>
 'use strict';
 // Use the published CSV URL for the tab containing the Tile Progress header.
