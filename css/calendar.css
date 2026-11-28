@@ -1,0 +1,90 @@
+header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.3rem 1rem; }
+
+
+@media (min-width:1400px) {
+  .winter-group { max-width:calc((100vw - 1030px) / 2); }
+}
+body {background:radial-gradient(ellipse at top,#28392e,#161c18 65%);text-shadow:1px 2px #100f0a}
+main {width:min(100%,860px);padding:22px 16px}
+header {display:flex;border-bottom:1px solid #736548;padding-bottom:9px;color:#dfcca0}
+h1 {text-align:center;font-size:clamp(36px,6vw,60px);margin:18px 0 4px;color:#ffdc83}
+.intro {text-align:center;margin:0;color:#efe6c9}
+.snowfight {height:78px}
+.frame {padding:10px;background:#272016;border:4px ridge #9b845b;box-shadow:0 6px 0 #100e0b,0 12px 42px #101510}
+.grid {display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.weekday {text-align:center;color:#ddc992;padding-bottom:5px}
+.door:first-of-type {grid-column:3}
+.door {color:#f4e0b7;font-size:clamp(23px,4vw,36px);font-weight:bold;height:clamp(63px,9vw,98px);border:3px ridge #94795a;text-shadow:2px 2px #160e09;background:repeating-linear-gradient(90deg,transparent 0 18%,#0002 19% 20%),linear-gradient(110deg,#694836,#412c23);box-shadow:inset 0 0 0 2px #261c15;transition:transform .18s}
+.door::before,.door::after {content:"";position:absolute;background:#aa8d59;border:1px solid #392e20;box-shadow:1px 1px #201a14}
+.door::before {width:15%;height:4px;left:0;top:18%;box-shadow:0 34px #9c8356}
+.door::after {width:5px;height:8px;right:8%;top:52%}
+.door:disabled {cursor:default}
+.door:not(:disabled) {border-color:#e3bf76;background:repeating-linear-gradient(90deg,transparent 0 18%,#0002 19% 20%),linear-gradient(115deg,#356044,#213f32);color:#ffdf91}
+.door:not(:disabled):hover {transform:translateY(-2px)}
+.door.seen::after {content:"✓";background:none;border:0;box-shadow:none;color:#e2d395;top:4px;right:5px;width:auto;height:auto;font-size:18px}
+#status {text-align:center;color:#dfcca0;margin:14px 0}
+dialog {max-width:min(90vw,450px);text-align:center;padding:25px;border:4px ridge #b49965;background:#30291e;color:#fff0cf;font:inherit;text-shadow:inherit}
+dialog::backdrop {background:#0a100dd9}
+dialog h2 {margin:0;color:#ffda80} dialog p {font-size:24px;margin:18px 0}
+dialog button {color:#ffdf9a;border:2px ridge #a58a5c;background:#473a29;padding:7px 20px}
+@media(max-width:560px){main{padding:12px 6px}.frame{padding:4px}.grid{gap:2px}.door{border-width:2px}.snowfight{height:64px}.weekday{font-size:16px}header{padding-inline:8px}}
+@media(prefers-reduced-motion:reduce){.door{transition:none}}
+.wordmark { white-space: nowrap; } h1 sup { font-size: .46em; vertical-align: super; line-height: 0; }
+
+main, .winter-cast { position:relative; z-index:1; }
+.sled-run {
+  position:fixed; inset:auto 0 0; height:155px; z-index:1;
+  overflow:hidden; pointer-events:none;
+}
+.sled-rider {
+  position:absolute; left:0; bottom:6px;
+  width:0; display:flex; flex-direction:column; align-items:center; gap:2px;
+  animation:snowbank-ride 18s linear infinite;
+}
+.sled-rider span { font:700 20px/1 "RuneScape",sans-serif; color:#ffff00; text-shadow:1px 1px #000; white-space:nowrap; }
+.sled-rider img { display:block; width:92px; height:auto; image-rendering:pixelated; }
+.sled-rider i { position:absolute; bottom:3px; left:-29px; width:3px; height:3px;
+  background:#f3fbff; box-shadow:-5px -2px #b7dbe5, 3px -3px #fff, -8px 1px #e4f1f4;
+  animation:runner-spray .52s linear infinite; }
+.sled-rider i:last-child { animation-delay:-.26s; }
+
+/* Olmlet follower, NPC 7519, OSRS walking sequence 7395. Game art © Jagex. */
+.sled-rider::before {
+  content:""; position:absolute; right:62px; bottom:5px; width:35px; height:84px;
+  background:url("../assets/images/olmlet.webp") center bottom / contain no-repeat;
+  image-rendering:pixelated; animation:olmlet-chase 3.2s ease-in-out infinite alternate;
+}
+@keyframes olmlet-chase { from { transform:translateX(-13px); } to { transform:translateX(4px); } }
+@media(max-width:1000px) { .sled-rider::before { right:52px; bottom:4px; width:30px; height:72px; } }
+
+@keyframes runner-spray {
+  0% { transform:translate(0,0); opacity:0; }
+  15% { opacity:1; } 55% { transform:translate(-13px,-7px); }
+  100% { transform:translate(-32px,1px); opacity:0; }
+}
+/* Follow the top edge of the existing 16px snowbank. */
+@keyframes snowbank-ride {
+  0% { transform:translate(-180px,0); }
+  9% { transform:translate(0vw,-0.6px); }
+  12.3% { transform:translate(5vw,-2.4px); }
+  16.26% { transform:translate(11vw,0.0px); }
+  20.22% { transform:translate(17vw,2.2px); }
+  24.84% { transform:translate(24vw,-1.3px); }
+  28.8% { transform:translate(30vw,1.0px); }
+  32.76% { transform:translate(36vw,3.2px); }
+  37.38% { transform:translate(43vw,1.3px); }
+  42.66% { transform:translate(51vw,4.5px); }
+  46.62% { transform:translate(57vw,2.4px); }
+  52.56% { transform:translate(66vw,-0.6px); }
+  56.52% { transform:translate(72vw,1.8px); }
+  61.14% { transform:translate(79vw,-0.5px); }
+  65.1% { transform:translate(85vw,0.5px); }
+  69.72% { transform:translate(92vw,-3.7px); }
+  72.36% { transform:translate(96vw,-2.6px); }
+  75% { transform:translate(100vw,-4.5px); }
+  87%,100% { transform:translate(calc(100vw + 180px),0); }
+}
+@media(max-width:1000px) {
+  .sled-rider img { width:82px; }
+}
+@media(prefers-reduced-motion:reduce) { .sled-run { display:none; } }

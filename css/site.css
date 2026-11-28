@@ -1,0 +1,15 @@
+/* RuneLite client fonts. */
+@font-face { font-family:"RuneScape"; font-weight:400; src:url("../assets/fonts/runescape.ttf") format("truetype"); }
+@font-face { font-family:"RuneScape"; font-weight:700; src:url("../assets/fonts/runescape-bold.ttf") format("truetype"); }
+
+.event-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3px;
+  width:calc(100% - 24px); max-width:680px; margin:8px auto 16px;
+  font:700 22px/1 RuneScape,sans-serif; text-align:center; }
+.event-tabs a { display:flex; align-items:center; justify-content:center;
+  min-width:0; min-height:44px; padding:6px 4px; text-decoration:none;
+  color:#eadbb5; background:#30291f; border:1px solid #726148; border-bottom:3px solid #726148; }
+.event-tabs a[aria-current="page"] { color:#ffdf83; background:#453a25; border-bottom-color:#ffcf60; }
+.event-tabs a:hover { background:#50412c; }
+.event-tabs a:focus-visible { outline:2px solid #fff2cc; outline-offset:1px; }
+.event-tabs sup { font-size:.65em; vertical-align:super; line-height:0; }
+@media(max-width:560px){ .event-tabs { font-size:18px; } }
